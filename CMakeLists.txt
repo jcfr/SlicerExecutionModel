@@ -1,7 +1,7 @@
 project(SlicerExecutionModel)
 
 #-----------------------------------------------------------------------------
-cmake_minimum_required(VERSION 2.8.2)
+cmake_minimum_required(VERSION 2.8.4)
 #-----------------------------------------------------------------------------
 
 if(DEFINED SlicerExecutionModel_INSTALL_BIN_DIR)
