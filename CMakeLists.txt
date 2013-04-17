@@ -89,6 +89,13 @@ if(NOT DEFINED SlicerExecutionModel_DEFAULT_CLI_LIBRARY_WRAPPER_CXX)
 endif()
 
 #-----------------------------------------------------------------------------
+# Define if CLI shared library should be installed by default.
+#-----------------------------------------------------------------------------
+if(NOT DEFINED SlicerExecutionModel_DEFAULT_NO_INSTALL_CLI_SHARED_LIBRARIES)
+  set(SlicerExecutionModel_DEFAULT_NO_INSTALL_CLI_SHARED_LIBRARIES FALSE)
+endif()
+
+#-----------------------------------------------------------------------------
 # Testing
 #-----------------------------------------------------------------------------
 include(CTest)

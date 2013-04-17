@@ -94,6 +94,10 @@ macro(SEMMacroBuildCLI)
       endif()
     endif()
   endif()
+  
+  if(NOT DEFINED SlicerExecutionModel_NO_INSTALL_CLI_SHARED_LIBRARIES)
+    set(SlicerExecutionModel_NO_INSTALL_CLI_SHARED_LIBRARIES ${SlicerExecutionModel_DEFAULT_NO_INSTALL_CLI_SHARED_LIBRARIES})
+  endif()
 
   set(CLP ${LOCAL_SEM_NAME})
 
@@ -193,13 +197,20 @@ macro(SEMMacroBuildCLI)
       endif()
     endforeach()
 
-    # Install each target in the production area (where it would appear in an installation)
-    # and install each target in the developer area (for running from a build)
-    install(TARGETS ${cli_targets}
-      RUNTIME DESTINATION ${LOCAL_SEM_INSTALL_RUNTIME_DESTINATION} COMPONENT RuntimeLibraries
-      LIBRARY DESTINATION ${LOCAL_SEM_INSTALL_LIBRARY_DESTINATION} COMPONENT RuntimeLibraries
-      ARCHIVE DESTINATION ${LOCAL_SEM_INSTALL_ARCHIVE_DESTINATION} COMPONENT RuntimeLibraries
-      )
+    if(TARGET ${CLP})
+      install(TARGETS ${CLP}
+        RUNTIME DESTINATION ${LOCAL_SEM_INSTALL_RUNTIME_DESTINATION} COMPONENT RuntimeLibraries
+        LIBRARY DESTINATION ${LOCAL_SEM_INSTALL_LIBRARY_DESTINATION} COMPONENT RuntimeLibraries
+        ARCHIVE DESTINATION ${LOCAL_SEM_INSTALL_ARCHIVE_DESTINATION} COMPONENT RuntimeLibraries
+        )
+    endif()
+    if(TARGET ${CLP}Lib AND NOT SlicerExecutionModel_NO_INSTALL_CLI_SHARED_LIBRARIES)
+      install(TARGETS ${CLP}Lib
+        RUNTIME DESTINATION ${LOCAL_SEM_INSTALL_RUNTIME_DESTINATION} COMPONENT RuntimeLibraries
+        LIBRARY DESTINATION ${LOCAL_SEM_INSTALL_LIBRARY_DESTINATION} COMPONENT RuntimeLibraries
+        ARCHIVE DESTINATION ${LOCAL_SEM_INSTALL_ARCHIVE_DESTINATION} COMPONENT RuntimeLibraries
+        )
+    endif()
   endif()
 
 endmacro()

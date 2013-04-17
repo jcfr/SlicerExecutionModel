@@ -71,6 +71,10 @@ endif()
 set(SlicerExecutionModel_DEFAULT_CLI_LIBRARY_WRAPPER_CXX
   "@SlicerExecutionModel_DEFAULT_CLI_LIBRARY_WRAPPER_CXX_CONFIG@"
   )
+  
+set(SlicerExecutionModel_DEFAULT_NO_INSTALL_CLI_SHARED_LIBRARIES
+  "@SlicerExecutionModel_DEFAULT_NO_INSTALL_CLI_SHARED_LIBRARIES@"
+  )
 
 # The SlicerExecutionModel targets file.
 if(NOT TARGET GenerateCLP AND EXISTS "@SlicerExecutionModel_EXPORT_FILE@")
