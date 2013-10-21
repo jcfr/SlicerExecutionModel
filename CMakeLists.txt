@@ -1,9 +1,13 @@
 project(SlicerExecutionModel)
 
-#-----------------------------------------------------------------------------
 cmake_minimum_required(VERSION 2.8.2)
-#-----------------------------------------------------------------------------
 
+#-----------------------------------------------------------------------------
+set(SlicerExecutionModel_VERSION_MAJOR "1")
+set(SlicerExecutionModel_VERSION_MINOR "0")
+set(SlicerExecutionModel_VERSION_PATCH "0")
+
+#-----------------------------------------------------------------------------
 if(DEFINED SlicerExecutionModel_INSTALL_BIN_DIR)
   set(GenerateCLP_INSTALL_BIN_DIR ${SlicerExecutionModel_INSTALL_BIN_DIR})
   set(ModuleDescriptionParser_INSTALL_BIN_DIR ${SlicerExecutionModel_INSTALL_BIN_DIR})
