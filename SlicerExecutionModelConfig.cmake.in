@@ -27,6 +27,12 @@ if(NOT SlicerExecutionModel_FIND_COMPONENTS)
   set(SlicerExecutionModel_USE_TCLAP 1)
 endif()
 
+
+set(SlicerExecutionModel_VERSION_MAJOR @SlicerExecutionModel_VERSION_MAJOR@)
+set(SlicerExecutionModel_VERSION_MINOR @SlicerExecutionModel_VERSION_MINOR@)
+set(SlicerExecutionModel_VERSION_PATCH @SlicerExecutionModel_VERSION_PATCH@)
+
+
 # SlicerExecutionModel_USE_SERIALIZER is optional and it must be turned on at
 # build time.
 if(SlicerExecutionModel_USE_SERIALIZER AND NOT "@SlicerExecutionModel_USE_SERIALIZER@")
